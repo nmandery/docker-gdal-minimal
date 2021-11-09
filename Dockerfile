@@ -33,6 +33,7 @@ RUN cd /tmp/gdal-${GDAL_VERSION} && \
         --with-liblzma \
         --with-freexl=no \
         --with-pcraster=no \
+        --with-pcidsk=no \ 
         --without-jpeg12 \
         --enable-lto=yes \
         --disable-all-optional-drivers \

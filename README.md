@@ -22,12 +22,10 @@ Supported Formats:
   MEM -raster,multidimensional raster- (rw+): In Memory Raster
   GIF -raster- (rwv): Graphics Interchange Format (.gif)
   BIGGIF -raster- (rov): Graphics Interchange Format (.gif)
-  PCIDSK -raster,vector- (rw+v): PCIDSK Database File
   STACTA -raster- (rovs): Spatio-Temporal Asset Catalog Tiled Assets
   STACIT -raster- (rovs): Spatio-Temporal Asset Catalog Items
   GPKG -raster,vector- (rw+vs): GeoPackage
 Supported Formats:
-  PCIDSK -raster,vector- (rw+v): PCIDSK Database File
   ESRI Shapefile -vector- (rw+v): ESRI Shapefile
   MapInfo File -vector- (rw+v): MapInfo File
   OGR_VRT -vector- (rov): VRT - Virtual Datasource
