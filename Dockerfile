@@ -33,8 +33,11 @@ RUN cd /tmp/gdal-${GDAL_VERSION} && \
         --with-liblzma \
         --with-freexl=no \
         --with-pcraster=no \
+        --without-jpeg12 \
         --enable-lto=yes \
         --disable-all-optional-drivers \
+        --enable-driver-stacit \
+        --enable-driver-stacta \
         --enable-driver-flatgeobuf \
         --enable-driver-shape \
         --enable-driver-gpkg && \

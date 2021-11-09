@@ -1,6 +1,6 @@
 gdal_version_major := "3"
-gdal_version_minor := "3"
-gdal_version_patch := "3"
+gdal_version_minor := "4"
+gdal_version_patch := "0"
 distribution_name := "bullseye"
 image_name := "nmandery/gdal-minimal"
 

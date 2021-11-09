@@ -23,6 +23,8 @@ Supported Formats:
   GIF -raster- (rwv): Graphics Interchange Format (.gif)
   BIGGIF -raster- (rov): Graphics Interchange Format (.gif)
   PCIDSK -raster,vector- (rw+v): PCIDSK Database File
+  STACTA -raster- (rovs): Spatio-Temporal Asset Catalog Tiled Assets
+  STACIT -raster- (rovs): Spatio-Temporal Asset Catalog Items
   GPKG -raster,vector- (rw+vs): GeoPackage
 Supported Formats:
   PCIDSK -raster,vector- (rw+v): PCIDSK Database File
