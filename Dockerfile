@@ -4,7 +4,6 @@ RUN apt-get update && \
     apt-get install --no-install-recommends -y \
         wget \
         libcurl4-gnutls-dev \
-        libgeos++-dev \
         libproj-dev \
         libexpat1-dev \
         libzstd-dev \
@@ -12,8 +11,37 @@ RUN apt-get update && \
         zlib1g-dev \
         libspatialite-dev \
         build-essential \
+        cmake \
         ca-certificates && \
     rm -rf /var/lib/apt/lists/*
+
+ARG CPUS=4
+
+# GEOS ###################################################
+
+ARG GEOS_VERSION=3.10.1
+
+RUN cd /tmp && \
+    wget https://github.com/libgeos/geos/archive/refs/tags/${GEOS_VERSION}.tar.gz && \
+    tar xf ${GEOS_VERSION}.tar.gz
+
+RUN cd /tmp/geos-${GEOS_VERSION} && \
+    mkdir build && \
+    cd build && \
+    cmake \
+         -DCMAKE_BUILD_TYPE=Release \
+         -DCMAKE_INSTALL_PREFIX=/usr/local/ \
+         -DBUILD_TESTING=OFF \
+         -DBUILD_BENCHMARKS=OFF \
+         -DBUILD_DOCUMENTATION=OFF \
+         .. && \
+	make --quiet -j${CPUS} && \ 
+	make --quiet install && \
+	find /usr/local -name '*.a' -delete && \
+    strip /usr/local/lib/*.so
+
+
+# GDAL ###################################################
 
 ARG GDAL_VERSION=3.3.1
 
@@ -21,7 +49,6 @@ RUN cd /tmp && \
     wget https://github.com/OSGeo/gdal/releases/download/v${GDAL_VERSION}/gdal-${GDAL_VERSION}.tar.gz && \
     tar xf gdal-${GDAL_VERSION}.tar.gz
 
-ARG CPUS=4
 
 RUN cd /tmp/gdal-${GDAL_VERSION} && \
     ./configure \
@@ -54,9 +81,6 @@ RUN apt-get update && \
         ca-certificates \
         libcurl3-gnutls \
         libexpat1 \
-        libgeos-3.9.0 \
-        libgeos-c1v5 \
-        libgeos-dev \ 
         libjbig0 \ 
         libjpeg62-turbo \ 
         libproj19 \ 
