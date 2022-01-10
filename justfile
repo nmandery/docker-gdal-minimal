@@ -1,6 +1,6 @@
 gdal_version_major := "3"
 gdal_version_minor := "4"
-gdal_version_patch := "0"
+gdal_version_patch := "1"
 
 geos_version_major := "3"
 geos_version_minor := "10"
